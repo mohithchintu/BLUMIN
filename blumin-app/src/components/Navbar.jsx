@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { IoMenu } from "react-icons/io5";
+import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
+    const Links = [
+        { name: "About", link: "/about" },
+        { name: "Academia", link: "/academia" },
+        { name: "Industry", link: "/industry" },
+        { name: "Contact Us", link: "/contact-us" },
+        { name: "Projects", link: "/projects" }
+    ];
+    let [open, setOpen] = useState(false);
     return (
-        <nav className='flex space-x-6 border-b mb-5 px-5 h-14 items-center'>
-            <Link to='/'>Logo</Link>
-            <Link to='/about'>About</Link>
-            <Link to='/academia'>Academia</Link>
-            <Link to='/industry'>Industry</Link>
-            <Link to='/contact-us'>Contact Us</Link>
-            <Link to='/projects'>Projects</Link>
-        </nav>
+        <div className='shadow-md w-full fixed top-0 left-0'>
+            <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
+                <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
+                    <Link to='/'>Logo<span> BLUMIN</span></Link>
+                </div>
+
+                <div onClick={() => setOpen(!open)} className='absolute right-8 top-5 cursor-pointer md:hidden w-7 h-7'>
+                    {
+                        open ? <FaXmark size={25} /> : <IoMenu size={25} />
+                    }
+                </div>
+
+                <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-white md:z-auto z-[-1] left-0 w-full md:w-auto md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
+                    {
+                        Links.map((item) => (
+                            <li className='md:ml-8 md:my-0 my-7 font-semibold'>
+                                <Link to={item.link} onClick={() => setOpen(false)} className='text-gray-800 hover:text-gray-500 duration-500'>{item.name}</Link>
+                            </li>))
+                    }
+                </ul>
+            </div>
+        </div>
     )
 }
 

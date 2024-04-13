@@ -11,16 +11,17 @@ import Projects from './pages/Projects'
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/academia' element={<Academia />} />
-        <Route path='/industry' element={<Industry />} />
-        <Route path='/contact-us' element={<ContactUs />} />
-        <Route path='/projects' element={<Projects />} />
-
-      </Routes>
+      <div className="mt-16 p-5">
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/academia' element={<Academia />} />
+          <Route path='/industry' element={<Industry />} />
+          <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='/projects' element={<Projects />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   )
 }
