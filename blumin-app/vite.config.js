@@ -3,5 +3,17 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors:{
+        'primary':'#c2a582',
+      },
+      
+    },
+  },
   plugins: [react()],
 })

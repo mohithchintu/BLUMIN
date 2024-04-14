@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import 'tailwindcss/tailwind.css';
 import Home from './pages/Home'
 import About from './pages/About'
 import Academia from './pages/Academia'
